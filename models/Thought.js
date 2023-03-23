@@ -5,7 +5,7 @@ const thoughtSchema = new Schema(
     {
         thoughtText:{
             type: String,
-            require: true,
+            required: true,
             minlength: 1,
             maxlength: 280,
         },
@@ -15,7 +15,7 @@ const thoughtSchema = new Schema(
         },
         username: {
             type: String,
-            require: true,
+            required: true,
         },
         reactions: [Reaction],
     },
@@ -33,5 +33,6 @@ thoughtSchema
         return this.reactions.length
     })
 
-const Thought  = model('thought', thoughtSchema)
-module.exports = thoughtSchema;
+
+const Thought = model('thought', thoughtSchema)
+module.exports = Thought;
