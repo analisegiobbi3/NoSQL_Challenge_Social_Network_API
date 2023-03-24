@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const Reaction  = require('./Reaction')
-
+//thoughts scheme that had an area for reactions
 const thoughtSchema = new Schema(
     {
         thoughtText:{

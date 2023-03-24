@@ -1,11 +1,13 @@
 const { Thought, User } = require('../models')
 
 module.exports = {
+    //Gets all thoughts that have been posted and their associated users, friends, and reactions
     getThoughts(req, res){
         Thought.find()
             .then((thoughts) => res.json(thoughts))
             .catch((err) => res.status(500).json(err))
     },
+    //gets one single thought based on id
     getSingleThought(req, res){
         Thought.findOne({ _id: req.params.thoughtId })
             .then((thought) => 
@@ -13,6 +15,7 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err))
     },
+    //allows users to post new thoughts to specific users
     createThought(req, res){
         Thought.create(req.body)
             .then((thought) =>{
@@ -26,6 +29,7 @@ module.exports = {
         )
         .catch((err) => res.status(500).json(err))
     },
+    // allows users to update thoughts using the thought id
     updateThought(req, res){
         Thought.findByIdAndUpdate(
             { _id:  req.params.thoughtId },
@@ -37,6 +41,7 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err))
     }, 
+    //allows users to delete thoughts using the thought id
     deleteThought(req, res){
         Thought.findOneAndRemove({ _id: req.params.thoughtId })
             .then((thought) => 
@@ -51,6 +56,7 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err))
     },
+    //allows users to add reactions using the thought id
     addThoughtReaction(req, res){
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
@@ -62,6 +68,7 @@ module.exports = {
         )
         .catch((err) => res.status(500).json(err))
     },
+    //allows users to remove responses using the thought id and teh response id
     removeThoughtResponse(req, res){
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
