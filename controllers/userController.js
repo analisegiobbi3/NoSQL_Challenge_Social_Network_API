@@ -43,8 +43,8 @@ module.exports = {
     },
     addUserFriend(req, res){
         User.findByIdAndUpdate(
-            { _id: req.params.friendId},
-            { $addToSet: { friends: req.body }},
+            { _id: req.params.userId},
+            { $addToSet: { friends: req.friendId }},
             { runValidators: true, new: true}
         )
             .then((user) => !user ? res.status(400).json({ message: 'no users with this id' }) : res.json(user))
@@ -52,8 +52,8 @@ module.exports = {
     },
     removeUserFriend(req, res){
         User.findOneAndUpdate(
-            { _id: req.params.friendId},
-            { $addToSet: { friends: req.body }},
+            { _id: req.params.userId },
+            { $addToSet: { friends: req.friendId }},
             { runValidators: true, new: true}
         )
             .then((user) => !user ? res.status(400).json({ message: 'no users with this id' }) : res.json(user))
