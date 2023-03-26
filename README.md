@@ -22,8 +22,11 @@
 
   ## [Usage](#table-of-contents)
   
-  Below is a video demonstrating the uses for this application. 
-  Add Video Here
+  Below is a video demonstrating the uses for this application. You can use the application to get, create, post, update, and delete the networks users, thoughts, reactions, and friends. The API allows use to see all of connections within the social network. 
+  
+
+https://user-images.githubusercontent.com/59839160/227794584-49e094ca-07a8-4e53-ba9b-c29c239467d2.mp4
+
 
   ## [License](#table-of-contents)
   n/a
